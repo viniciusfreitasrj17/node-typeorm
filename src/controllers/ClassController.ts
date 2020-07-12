@@ -1,6 +1,7 @@
 import { Response, Request } from 'express';
-import { getRepository } from 'typeorm';
+import { getRepository, getCustomRepository } from 'typeorm';
 import Class from '../models/Class';
+import ClassRepository from '../repositories/ClassRepository';
 
 class ClassController {
   public async index(req: Request, res: Response): Promise<Response> {
@@ -18,12 +19,8 @@ class ClassController {
   public async show(req: Request, res: Response): Promise<Response> {
     const { name } = req.params;
     try {
-      const repo = getRepository(Class);
-      const data = await repo.find({
-        where: {
-          name
-        }
-      });
+      const repo = getCustomRepository(ClassRepository);
+      const data = await repo.findByName(name);
 
       return res.status(200).json(data);
     } catch (err) {
