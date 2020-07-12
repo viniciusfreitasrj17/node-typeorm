@@ -5,7 +5,7 @@ import './database';
 
 dotenv.config();
 
-app.listen(3333, () => {
+app.listen(process.env.PORT || 3333, () => {
   // eslint-disable-next-line no-console
   console.log('🏃 Running Server ✨');
 });
