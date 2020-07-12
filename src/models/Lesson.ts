@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn
+} from 'typeorm';
 
 @Entity('lesson')
 export default class Lesson {
@@ -9,4 +15,10 @@ export default class Lesson {
     length: 250
   })
   name: string;
+
+  @CreateDateColumn()
+  created_At: Date;
+
+  @UpdateDateColumn()
+  updated_At: Date;
 }
