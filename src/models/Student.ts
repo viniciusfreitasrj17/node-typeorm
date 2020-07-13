@@ -3,8 +3,11 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  ManyToMany,
+  JoinTable
 } from 'typeorm';
+import Class from './Class';
 
 @Entity('student')
 export default class Student {
@@ -16,6 +19,10 @@ export default class Student {
 
   @Column()
   key: number;
+
+  @ManyToMany(type => Class)
+  @JoinTable() // with this decorator not need add in Class
+  classes: Class;
 
   @CreateDateColumn()
   created_At: Date;

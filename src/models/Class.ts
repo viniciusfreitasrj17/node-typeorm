@@ -4,7 +4,8 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
-  OneToMany
+  OneToMany,
+  ManyToMany
 } from 'typeorm';
 import Lesson from './Lesson';
 
