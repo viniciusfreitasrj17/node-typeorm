@@ -11,10 +11,7 @@ export default class Class {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({
-    length: 100,
-    unique: true
-  })
+  @Column()
   name: string;
 
   @Column()
