@@ -3,8 +3,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  OneToOne
 } from 'typeorm';
+import Content from './Content';
 
 @Entity('lesson')
 export default class Lesson {
@@ -13,6 +15,9 @@ export default class Lesson {
 
   @Column()
   description: string;
+
+  @OneToOne(type => Content, lesson => Lesson)
+  content: Content;
 
   @CreateDateColumn()
   created_At: Date;
