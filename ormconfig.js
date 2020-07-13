@@ -7,10 +7,12 @@ module.exports = {
   // password: '',
   // database: '',
   // synchronize: true,
-  entities: ['dist/models/**/*.js'],
-  migrations: ['dist/database/migrations/**/*.js'],
+  entities: [process.env.ENTITIES_PATH] || ['dist/models/**/*.js'],
+  migrations: [process.env.MIGRATIONS_PATH] || [
+    'dist/database/migrations/**/*.js'
+  ],
   cli: {
-    migrationsDir: ['src/database/migrations/'],
+    migrationsDir: ['src/database/migrations'],
     entitiesDir: 'src/models'
   }
 };
