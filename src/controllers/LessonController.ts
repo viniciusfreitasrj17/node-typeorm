@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import Lesson from '../models/Lesson';
@@ -10,7 +11,7 @@ class LessonController {
 
       return res.status(200).json(data);
     } catch (err) {
-      // console.log(err.message);
+      console.log(err.message);
       return res.status(400).json({ Mensagge: 'Index Lesson Failed' });
     }
   }
@@ -22,7 +23,7 @@ class LessonController {
 
       return res.status(200).json(data);
     } catch (err) {
-      // console.log(err.message);
+      console.log(err.message);
       return res.status(400).json({ Mensagge: 'Store Lesson Failed' });
     }
   }
