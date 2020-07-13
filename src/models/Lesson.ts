@@ -9,12 +9,10 @@ import {
 @Entity('lesson')
 export default class Lesson {
   @PrimaryGeneratedColumn('uuid')
-  idAula: string;
+  id: string;
 
-  @Column({
-    length: 250
-  })
-  name: string;
+  @Column()
+  description: string;
 
   @CreateDateColumn()
   created_At: Date;
