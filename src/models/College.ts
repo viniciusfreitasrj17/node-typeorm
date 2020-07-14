@@ -1,8 +1,11 @@
-import { Column, ChildEntity } from 'typeorm';
-import Institution from './Institution';
+import { Column, Entity } from 'typeorm';
+import Identifier from './Identifier';
 
-@ChildEntity()
-export default class College extends Institution {
+@Entity()
+export default class College {
+  @Column(type => Identifier)
+  identification: Identifier;
+
   @Column()
   graduations: string;
 
