@@ -2,10 +2,13 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  Entity,
+  TableInheritance
 } from 'typeorm';
 
-// @Entity()
+@Entity()
+@TableInheritance({ column: { type: 'varchar', name: 'type' } })
 export default abstract class Institution {
   @PrimaryGeneratedColumn('uuid')
   id: string;

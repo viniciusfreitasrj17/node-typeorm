@@ -1,8 +1,11 @@
-import { Entity, Column } from 'typeorm';
+import { Column, ChildEntity } from 'typeorm';
 import Institution from './Institution';
 
-@Entity('college')
+@ChildEntity()
 export default class College extends Institution {
   @Column()
   graduations: string;
+
+  @Column()
+  year: number;
 }
