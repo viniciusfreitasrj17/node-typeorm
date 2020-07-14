@@ -7,6 +7,7 @@ module.exports = {
   // password: '',
   // database: '',
   // synchronize: true,
+  // Add PATH in Server
   entities: [process.env.ENTITIES_PATH],
   migrations: [process.env.MIGRATIONS_PATH],
   cli: {
