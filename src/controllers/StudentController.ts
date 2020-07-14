@@ -22,7 +22,10 @@ class StudentController {
       const repo = getRepository(Student);
       const { name, key, email } = req.body;
 
-      const student = repo.create({ name, key, email });
+      const student = new Student();
+      student.name = name;
+      student.key = key;
+      student.email = email;
 
       const erros = await validate(student);
 
