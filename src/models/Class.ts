@@ -4,8 +4,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToMany
+  OneToMany
 } from 'typeorm';
 import Lesson from './Lesson';
 
@@ -16,6 +15,13 @@ export default class Class {
 
   @Column()
   name: string;
+
+  @Column({
+    length: 100,
+    unique: true,
+    nullable: true
+  })
+  description: string;
 
   @Column()
   duration: number;
