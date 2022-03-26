@@ -1,7 +1,5 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
 
-psql -v ON_ERROR_STOP=1 --username $DB_USER <<-EOSQL
-    CREATE DATABASE ${DB_NAME};
-    GRANT ALL PRIVILEGES ON DATABASE ${DB_NAME} TO ${DB_USER};
-EOSQL
+psql -U $DB_USER -tc "SELECT 1 FROM pg_database WHERE datname = '${DB_NAME}'" \
+  | grep -q 1 || psql -U $DB_USER -c "CREATE DATABASE ${DB_NAME};"\
+  && psql -U $DB_USER -c "GRANT ALL PRIVILEGES ON DATABASE ${DB_NAME} TO ${DB_USER}"

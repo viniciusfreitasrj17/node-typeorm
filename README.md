@@ -1,12 +1,29 @@
-## Create .env.dev and .env.production by .env.example
+# Backend with Typescript and TypeORM on Docker Compose
 
-## Run Production
+### Create .env.development and .env.production by .env examples
+
+## Run Production on Docker Compose
 
 `docker-compose --file docker-compose-production.yaml --env-file .env.production up -d`
-`docker-compose --env-file .env.production down`
+<br>
 
-## Run Development
+`docker-compose --file docker-compose-production.yaml --env-file .env.production down`
 
-`docker-compose --env-file .env.dev up -d`
-`docker-compose --env-file .env.dev down`
+#### Run Production without Docker Compose
 
+`yarn && yarn build && yarn start`
+
+<br>
+<br>
+<br>
+
+## Run Development on Docker Compose
+
+`docker-compose up -d`
+<br>
+
+`docker-compose down`
+
+#### Run Development without Docker Compose
+
+`yarn && yarn dev`

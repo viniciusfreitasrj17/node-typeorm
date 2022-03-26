@@ -9,4 +9,4 @@ RUN yarn
 
 COPY . .
 
-CMD [ "yarn", "dev" ]
+CMD sh -c 'sleep 7; yarn dev'

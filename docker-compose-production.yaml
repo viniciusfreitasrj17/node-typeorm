@@ -1,10 +1,16 @@
 version: '3.4'
 
+networks:
+  production:
+    driver: bridge
+
 services:
-  api:
+  api_production:
     build:
       context: .
       dockerfile: prod.Dockerfile
+    networks:
+      - production
     ports:
       - ${PORT}:${PORT}
     environment:
@@ -15,12 +21,14 @@ services:
       # - DB_PASS=${DB_PASS}
       # - DB_NAME=${DB_NAME}
     depends_on:
-      - db
+      - db_production
 
-  db:
+  db_production:
     build:
       context: .
       dockerfile: db.Dockerfile
+    networks:
+      - production
     volumes:
       - ./data:/var/lib/postgresql/data
     restart: always
