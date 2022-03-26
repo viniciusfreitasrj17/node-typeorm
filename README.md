@@ -19,10 +19,10 @@
 
 ## Run Development on Docker Compose
 
-`docker-compose up -d`
+`docker-compose -env-file .env.development up -d`
 <br>
 
-`docker-compose down`
+`docker-compose -env-file .env.development down`
 
 #### Run Development without Docker Compose
 
