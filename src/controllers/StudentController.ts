@@ -2,7 +2,7 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import { validate } from 'class-validator';
-import Student from '../models/Student';
+import Student from '../entity/Student';
 
 class StudentController {
   public async index(req: Request, res: Response): Promise<Response> {
@@ -12,7 +12,7 @@ class StudentController {
 
       return res.status(200).json(data);
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
       return res.status(400).json({ Mensagge: 'Index Student Failed' });
     }
   }
@@ -35,7 +35,7 @@ class StudentController {
       }
       return res.status(400).json(erros.map(content => content.constraints));
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
       return res.status(400).json({ Mensagge: 'Store Student Failed' });
     }
   }

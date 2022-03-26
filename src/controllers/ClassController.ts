@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { Response, Request } from 'express';
 import { getRepository, getCustomRepository } from 'typeorm';
-import Class from '../models/Class';
+import Class from '../entity/Class';
 import ClassRepository from '../repositories/ClassRepository';
 
 class ClassController {
@@ -12,7 +12,7 @@ class ClassController {
 
       return res.status(200).json(data);
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
       return res.status(400).json({ Mensagge: 'Index Class Failed' });
     }
   }
@@ -25,7 +25,7 @@ class ClassController {
 
       return res.status(200).json(data);
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
       return res.status(400).json({ Mensagge: 'Show Class Failed' });
     }
   }
@@ -37,7 +37,7 @@ class ClassController {
 
       return res.status(200).json(data);
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
       return res.status(400).json({ Mensagge: 'Store Class Failed' });
     }
   }

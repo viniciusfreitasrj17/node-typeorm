@@ -1,0 +1,31 @@
+GET http://localhost:3333/health
+
+###
+GET http://localhost:3333/class
+
+###
+GET http://localhost:3333/class/Golang
+
+
+###
+POST http://localhost:3333/class
+Content-Type: application/json
+
+{
+  "name": "Golang",
+  "description": "Golang Class, the Google Language",
+  "duration": 40,
+  "lessons": []
+}
+
+###
+PATCH http://localhost:3333/class/cba8622a-1308-4d12-8bc3-5f1b88c98615
+Content-Type: application/json
+
+{
+  "name": "Typescript",
+  "description": "Typescript Class, the Microsoft Language"
+}
+
+###
+DELETE http://localhost:3333/class/cba8622a-1308-4d12-8bc3-5f1b88c98615

@@ -4,12 +4,12 @@
   "main": "app.ts",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "dev": "nodemon src/server.ts",
-    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
-    "start": "node dist/server.js",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js --config ormconfig.js",
+    "dev": "nodemon",
     "predev": "yarn typeorm migration:run",
-    "prestart": "npx typeorm migration:run"
+    "build": "NODE_ENV=production node_modules/typescript/bin/tsc",
+    "start": "NODE_ENV=production node dist/server.js",
+    "prestart": "NODE_ENV=production yarn typeorm migration:run"
   },
   "devDependencies": {
     "@types/express": "^4.17.5",

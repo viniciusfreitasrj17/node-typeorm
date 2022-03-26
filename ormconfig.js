@@ -1,17 +1,23 @@
+const dotenv = require("dotenv")
+
+dotenv.config({
+  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.dev'
+});
+
 module.exports = {
   type: 'postgres',
   url: process.env.DATABASE_URL,
-  // host: '',
-  // port: 5433,
-  // username: '',
-  // password: '',
-  // database: '',
+  // host: process.env.DB_HOST,
+  // port: process.env.DB_PORT,
+  // username: process.env.DB_USER,
+  // password: process.env.DB_PASS,
+  // database: process.env.DB_NAME,
   // synchronize: true,
   // Add PATH in Server
-  entities: [process.env.ENTITIES_PATH],
-  migrations: [process.env.MIGRATIONS_PATH],
+  entities: [process.env.TYPEORM_ENTITIES],
+  migrations: [process.env.TYPEORM_MIGRATION],
   cli: {
-    migrationsDir: ['src/database/migrations'],
-    entitiesDir: 'src/models'
+    entitiesDir: process.env.TYPEORM_ENTITIES_DIR,
+    migrationsDir: process.env.TYPEORM_MIGRATION_DIR,
   }
 };

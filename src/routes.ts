@@ -1,10 +1,24 @@
-import { Router } from 'express';
+import { Request, Response, Router } from 'express';
 import ClassController from './controllers/ClassController';
 import ContentController from './controllers/ContentController';
 import LessonController from './controllers/LessonController';
 import StudentController from './controllers/StudentController';
 
-const routes = Router();
+const routes: Router = Router();
+
+// routes Hello
+routes.get(
+  '/health',
+  (_: Request, res: Response): Response<unknown> => {
+    const data = {
+      uptime: process.uptime(),
+      message: 'Ok',
+      date: new Date()
+    };
+
+    return res.status(200).json({ data });
+  }
+);
 
 // routes Class
 routes.get('/class', ClassController.index);

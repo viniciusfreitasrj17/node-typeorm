@@ -7,7 +7,7 @@ export default class CreateLesson1594504955377 implements MigrationInterface {
         name: 'lesson',
         columns: [
           {
-            name: 'id',
+            name: 'idAula',
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
